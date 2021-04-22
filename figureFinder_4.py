@@ -63,14 +63,10 @@ class TEXfile(object):
                 if not Gpath.is_absolute():
                     Gpath = self.fPath.parents[0] / Gpath
                 Gpath = Gpath / subPath
-                print('new Path', Gpath)
                 for file in os.scandir(Gpath):
-                    print('file', file.path)
                     if file.name.startswith(fileName) and file.is_file():
-                        print('found it!')
                         return Path(file.path)
             except FileNotFoundError:
-                print('fail')
                 pass
 
     def readInput(self, l):
@@ -103,7 +99,6 @@ print(
 
 
 )
-print(tex.included)
 for g in tex.graphicList:
     print(g)
 print()
